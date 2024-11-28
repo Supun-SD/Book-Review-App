@@ -4,7 +4,7 @@ import AddReview from "./pages/AddReview";
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col justify-between">
+    <div className="flex min-h-screen flex-col justify-between bg-[#ddddff]">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/add-review" element={<AddReview />} />

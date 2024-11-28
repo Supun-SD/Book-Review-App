@@ -4,6 +4,7 @@ import ConfirmationDialog from "./ConfirmationDialog";
 import PopUpModel from "../components/PopUpModel";
 import { deleteReview } from "../services/reviewService";
 import { showToast } from "../lib/toast";
+import UpdateReview from "./UpdateReview";
 
 function ReviewCard({ review, setReviews }) {
   const { bookDetails, customerName, text, rating, createdAt } = review;
@@ -24,7 +25,7 @@ function ReviewCard({ review, setReviews }) {
 
   const handleDelete = async () => {
     deleteReview(review._id)
-      .then((response) => {
+      .then(() => {
         setReviews((prevReviews) =>
           prevReviews.filter((r) => r._id !== review._id),
         );
@@ -39,8 +40,7 @@ function ReviewCard({ review, setReviews }) {
           type: "error",
           description: "There was an error deleting the review",
         });
-      })
-      .finally(() => {});
+      });
   };
 
   return (
@@ -50,7 +50,7 @@ function ReviewCard({ review, setReviews }) {
         <div className="text-lg">by {bookDetails.author}</div>
       </div>
 
-      <div className="mb-6 mt-4 px-8">
+      <div className="mb-8 mt-4 px-8">
         <div className="flex items-center gap-3">
           <div className="h-16 w-14 overflow-hidden rounded-full">
             <img
@@ -76,7 +76,9 @@ function ReviewCard({ review, setReviews }) {
               button={
                 <SquarePen className="cursor-pointer" size={20} color="gray" />
               }
-            ></PopUpModel>
+            >
+              <UpdateReview review={review} setReviews={setReviews} />
+            </PopUpModel>
             <ConfirmationDialog
               message="Once deleted, this review cannot be recovered. Are you sure you want to proceed?"
               action={handleDelete}

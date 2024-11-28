@@ -63,7 +63,7 @@ function AddReview() {
 
     setIsLoading(true);
     createReview(review)
-      .then((response) => {
+      .then(() => {
         showToast({
           type: "success",
           description: "Your review has been submitted successfully",
@@ -83,7 +83,7 @@ function AddReview() {
   };
 
   return (
-    <div className="mt-18 mx-auto mb-20 w-full max-w-3xl flex-col items-center justify-between">
+    <div className="mx-auto mb-20 w-full max-w-3xl flex-col items-center justify-between">
       <div className="mt-20 text-3xl font-bold">Add a review</div>
       <div className="mt-8 rounded-xl bg-white p-10">
         <Input

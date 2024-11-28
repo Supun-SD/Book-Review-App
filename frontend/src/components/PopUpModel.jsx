@@ -10,7 +10,7 @@ function PopUpModel({ children, title, button }) {
   return (
     <Dialog>
       <DialogTrigger>{button}</DialogTrigger>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="max-w-xl">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <div>{children}</div>

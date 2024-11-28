@@ -26,7 +26,12 @@ function ConfirmationDialog({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={action}>Continue</AlertDialogAction>
+          <AlertDialogAction
+            onClick={action}
+            className="bg-[#202055] transition duration-300 hover:bg-[#5959a7]"
+          >
+            Delete
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
